@@ -1,0 +1,228 @@
+\documentclass[UTF8]{ctexart}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{enumerate}
+
+\usetikzlibrary{automata,positioning}
+
+%
+% Basic Document Settings
+%
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName\ \hmwkStudentID}
+\chead{\hmwkClass: \hmwkTitle}
+\rhead{\firstxmark}
+\lfoot{\lastxmark}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+
+\setlength\parindent{0pt}
+
+%
+% Create Problem Sections
+%
+
+\newcommand{\enterProblemHeader}[1]{
+    \nobreak\extramarks{}{Problem \arabic{#1} continued on next page\ldots}\nobreak{}
+    \nobreak\extramarks{Problem \arabic{#1} (continued)}{Problem \arabic{#1} continued on next page\ldots}\nobreak{}
+}
+
+\newcommand{\exitProblemHeader}[1]{
+    \nobreak\extramarks{Problem \arabic{#1} (continued)}{Problem \arabic{#1} continued on next page\ldots}\nobreak{}
+    \stepcounter{#1}
+    \nobreak\extramarks{Problem \arabic{#1}}{}\nobreak{}
+}
+
+\setcounter{secnumdepth}{0}
+\newcounter{partCounter}
+\newcounter{homeworkProblemCounter}
+\setcounter{homeworkProblemCounter}{1}
+\nobreak\extramarks{Problem \arabic{homeworkProblemCounter}}{}\nobreak{}
+
+\newenvironment{homeworkProblem}{
+    \section{Problem \arabic{homeworkProblemCounter}}
+    \setcounter{partCounter}{1}
+    \enterProblemHeader{homeworkProblemCounter}
+}{
+    \exitProblemHeader{homeworkProblemCounter}
+}
+
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{Homework 1}
+\newcommand{\hmwkDueDate}{Oct. 31, 2025}
+\newcommand{\hmwkClass}{现代信号处理}
+\newcommand{\hmwkStudentID}{这里写学号}
+\newcommand{\hmwkAuthorName}{这里写姓名}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \normalsize\vspace{0.1in}\small{Due\ on\ \hmwkDueDate\ }\\
+    \vspace{3in}
+}
+
+\author{
+	\textbf{\hmwkAuthorName}\\
+	\textbf{学号\ \hmwkStudentID}
+}
+\date{}
+
+\renewcommand{\part}[1]{\textbf{\large Part \Alph{partCounter}}\stepcounter{partCounter}}
+
+%
+% Various Helper Commands
+%
+
+% Useful for algorithms
+\newcommand{\alg}[1]{\textsc{\bfseries \footnotesize #1}}
+
+% For derivatives
+\newcommand{\deriv}[1]{\frac{\mathrm{d}}{\mathrm{d}x} (#1)}
+
+% For partial derivatives
+\newcommand{\pderiv}[2]{\frac{\partial}{\partial #1} (#2)}
+
+% Integral dx
+\newcommand{\dx}{\mathrm{d}x}
+
+% Alias for the Solution section header
+\newcommand{\solution}{\textbf{\large Solution}}
+
+% Probability commands: Expectation, Variance, Covariance, Bias
+\newcommand{\E}{\mathrm{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Bias}{\mathrm{Bias}}
+
+\begin{document}
+
+\maketitle
+
+\pagebreak
+
+要求:latex\\
+DDL:2025/10/31 下午24: 00分前提交pdf电子版\\
+电子版以"homework1-姓名-学号"形式发送到12432643@mail.sustech.edu.cn邮箱\\
+
+
+\begin{homeworkProblem}
+    学习LaTeX的环境配置以及基本使用，在提供的作业模板题目下方给出答案，并在DDL前将最终生成的pdf文件发送到指定邮箱。(LaTeX编辑器选择TeXstudio, VScode, Overleaf 等都可以)
+
+\end{homeworkProblem}
+
+
+\begin{homeworkProblem}
+    \begin{enumerate}[(1)]
+        \item \(y(n) = x(-n)\)
+        \item \(y(n) = x(n^2)\)
+        \item \(y(n) = x^2(n)\)
+        \item \(y(n) = x(n)sin(nw)\)
+    \end{enumerate}
+    试判断每一个系统是否具有线性、移不变性，并说明理由。\\
+    \\
+
+\end{homeworkProblem}
+
+
+\begin{homeworkProblem}
+    \begin{enumerate}[(1)]
+        \item \(y(n) = \dfrac{{1}}{{N+1}}{\mathop{ \sum }\limits_{{k=0}}^{{N}}{x \left( n-k \right) }} \text {, N是大于零的整数}\)
+        \item \(y(n) = x(-n)\)
+        \item \(y(n) = x(n^2)\)
+    \end{enumerate}
+    试判定哪一个是因果系统，哪一个是非因果系统，并说明理由。\\
+    \\
+
+\end{homeworkProblem}
+
+
+\begin{homeworkProblem}
+    \begin{enumerate}[(1)]
+        \item \(y(n) = \sum\limits_{{k=0}}^{{N-1}}a_{{k}}x(n-k) \)，其中$a_0$，$a_1$，...，$a_{N-1}$为常数。\\
+        \item \(y(n) = 2a cosw_0 y(n-1) - a^2 y(n-2) + x(n) - a cosw_0 x(n-1)\)，其中$a$，$w_0$为常数。
+    \end{enumerate}
+    试求其单位抽样响应$h(n)$，并判断系统是否是稳定的。稳定的条件是什么？\\
+
+\end{homeworkProblem}
+
+
+\begin{homeworkProblem}
+    证明系统的单位抽样响应在$n<0$时有$h(n) \equiv 0$, 且$x(n)$是因果信号，那么$y(n)$是因果信号。\\
+
+\end{homeworkProblem}
+
+
+\begin{homeworkProblem}
+    $y(n)=ay(n-1)+x(n)$, $y(-1)=0$，试证明：
+    \begin{enumerate}[(1)]
+        \item 线性
+        \item 移不变性
+        \item 因果性
+        \item $|a| \textless1$情况下的稳定性
+    \end{enumerate}
+
+\end{homeworkProblem}
+
+
+\begin{homeworkProblem}
+    设$x(nT_s)=e^{-nT_s}$为一指数函数，$n=0,1,2,...,\infty$,而$T_s$为抽样间隔，求$x(n)$的自相关函数$r_x(mT_s)$。\\
+
+\end{homeworkProblem}
+
+
+\begin{homeworkProblem}
+    证明下列功率信号自相关函数的性质：
+    \begin{enumerate}[(1)]
+        \item 若$x(n)$是周期的，周期是$N$，则$r_x(m)=r_x(m+N)$
+        \item 若$x(n)$是实的，则$r_x(m)=r_x(-m)$
+        \item 若$x(n)$是复信号，则$r_x(m)=r_x^*(-m)$
+    \end{enumerate}
+
+\end{homeworkProblem}
+
+
+\begin{homeworkProblem}
+    简述：1.什么是过拟合？2.它会带来怎样的结果？3.数据增强为什么可以减轻过拟合现象？请简述一下常用手段。
+
+\end{homeworkProblem}
+
+
+\begin{homeworkProblem}
+    简述：1. 卷积神经网络与全连接神经网络有什么区别？2. 什么是梯度消失，什么是梯度爆炸？3. ResNet是如何解决梯度消失问题的？
+
+\end{homeworkProblem}
+
+
+\end{document}
