@@ -129,7 +129,7 @@ class EvolutionaryAlgorithm:
             fitness_values = self.evaluate_population()
             current_best_fitness = min(fitness_values)
             self.fitness_history.append(current_best_fitness)            
-            if verbose and generation % 100 == 0:
+            if verbose and generation % 200 == 0:
                 print(f"Generation {generation}: Best Fitness = {current_best_fitness:.6f}")
             self.population = self.create_new_generation(fitness_values)            
         final_fitness_values = self.evaluate_population()       
@@ -236,8 +236,8 @@ def f15(x):
 
 def use(test_num):
     DIMENSION = 30
-    POPULATION_SIZE = 100
-    GENERATIONS = 1000
+    POPULATION_SIZE = 200
+    GENERATIONS = 5000
 
     funcs = ["", f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11, f12, f13, f14, f15]
     bounds = ["", 
@@ -260,7 +260,7 @@ def use(test_num):
         bounds=bound,
         objective_function=funcs[test_num],
         mutation_rate=0.1,
-        crossover_rate=0.9,
+        crossover_rate=0.8,
         selection_method="tournament",
         tournament_size=3
     )
@@ -306,5 +306,21 @@ def compare_parameters(test_num):
     plt.show()
 
 
+def process_data(result, test_num):
+    best_fitness = result["best_fitness"]
+    fitness_history = result["fitness_history"]
+    idx = 0
+    for i in range(len(fitness_history)):
+        if fitness_history[i] == best_fitness:
+            idx = i + 1
+            break
+    with open(f"../data/{test_num}.txt", 'a') as f:
+        f.write(f"{best_fitness} {idx}\n")
+
+
 if __name__ == "__main__":
-    results = use(1)
+    test_num = 1
+    for _ in range(14):
+        result = use(1)
+        process_data(result, 1)
+
