@@ -319,8 +319,8 @@ def process_data(result, test_num):
 
 
 if __name__ == "__main__":
-    test_num = 1
-    for _ in range(14):
-        result = use(1)
-        process_data(result, 1)
+    for test_num in range(1, 16):
+        for _ in range(20):
+            result = use(test_num)
+            process_data(result, test_num)
 
