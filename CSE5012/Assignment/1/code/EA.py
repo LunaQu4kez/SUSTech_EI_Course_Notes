@@ -230,7 +230,10 @@ def f15(x):
     for i in range(11):
         numerator = x[0] * (b[i]**2 + b[i] * x[1])
         denominator = b[i]**2 + b[i] * x[2] + x[3]
-        sum_val += (a[i] - numerator / denominator)**2
+        if denominator == 0:
+            sum_val += 99999999
+        else:
+            sum_val += (a[i] - numerator / denominator)**2
     return sum_val
 
 
