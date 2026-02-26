@@ -1,0 +1,220 @@
+\documentclass[UTF8]{ctexart}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{enumerate}
+
+\usetikzlibrary{automata,positioning}
+
+%
+% Basic Document Settings
+%
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName\ \hmwkStudentID}
+\chead{\hmwkClass: \hmwkTitle}
+\rhead{\firstxmark}
+\lfoot{\lastxmark}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+
+\setlength\parindent{0pt}
+
+%
+% Create Problem Sections
+%
+
+\newcommand{\enterProblemHeader}[1]{
+    \nobreak\extramarks{}{Problem \arabic{#1} continued on next page\ldots}\nobreak{}
+    \nobreak\extramarks{Problem \arabic{#1} (continued)}{Problem \arabic{#1} continued on next page\ldots}\nobreak{}
+}
+
+\newcommand{\exitProblemHeader}[1]{
+    \nobreak\extramarks{Problem \arabic{#1} (continued)}{Problem \arabic{#1} continued on next page\ldots}\nobreak{}
+    \stepcounter{#1}
+    \nobreak\extramarks{Problem \arabic{#1}}{}\nobreak{}
+}
+
+\setcounter{secnumdepth}{0}
+\newcounter{partCounter}
+\newcounter{homeworkProblemCounter}
+\setcounter{homeworkProblemCounter}{1}
+\nobreak\extramarks{Problem \arabic{homeworkProblemCounter}}{}\nobreak{}
+
+\newenvironment{homeworkProblem}{
+    \section{Problem \arabic{homeworkProblemCounter}}
+    \setcounter{partCounter}{1}
+    \enterProblemHeader{homeworkProblemCounter}
+}{
+    \exitProblemHeader{homeworkProblemCounter}
+}
+
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{Homework 2}
+\newcommand{\hmwkDueDate}{Nov. 19, 2025}
+\newcommand{\hmwkClass}{现代信号处理}
+\newcommand{\hmwkStudentID}{这里写学号}
+\newcommand{\hmwkAuthorName}{这里写姓名}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \normalsize\vspace{0.1in}\small{Due\ on\ \hmwkDueDate\ }\\
+    \vspace{3in}
+}
+
+\author{
+	\textbf{\hmwkAuthorName}\\
+	\textbf{学号\ \hmwkStudentID}
+}
+\date{}
+
+\renewcommand{\part}[1]{\textbf{\large Part \Alph{partCounter}}\stepcounter{partCounter}}
+
+%
+% Various Helper Commands
+%
+
+% Useful for algorithms
+\newcommand{\alg}[1]{\textsc{\bfseries \footnotesize #1}}
+
+% For derivatives
+\newcommand{\deriv}[1]{\frac{\mathrm{d}}{\mathrm{d}x} (#1)}
+
+% For partial derivatives
+\newcommand{\pderiv}[2]{\frac{\partial}{\partial #1} (#2)}
+
+% Integral dx
+\newcommand{\dx}{\mathrm{d}x}
+
+% Alias for the Solution section header
+\newcommand{\solution}{\textbf{\large Solution}}
+
+% Probability commands: Expectation, Variance, Covariance, Bias
+\newcommand{\E}{\mathrm{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Bias}{\mathrm{Bias}}
+
+\begin{document}
+
+\maketitle
+
+\pagebreak
+
+要求:latex\\
+DDL:2025/11/19 下午23:59分前提交pdf电子版\\
+电子版以"homework2-姓名-学号"形式发送到12332207@mail.sustech.edu.cn邮箱\\
+
+
+\begin{homeworkProblem}
+    设 \( x[n] = \delta[n] + 2\delta[n - 1] - \delta[n - 3] \) 和 \( h[n] = 2\delta[n + 1] + 2\delta[n - 1] \)，计算下列各卷积。
+    \begin{enumerate}[(1)]
+        \item \( y_1[n] = x[n] * h[n] \)
+        \item \( y_2[n] = x[n + 2] * h[n] \)
+        \item \( y_3[n] = x[n] * h[n + 2] \)
+    \end{enumerate} 
+
+\end{homeworkProblem}
+
+
+\begin{homeworkProblem}
+    一个线性系统 \( S \) 的输入 \( x[n] \) 输出 \( y[n] \) 之间有如下关系：\\
+    \[y[n] = \sum_{k = -\infty}^{\infty} x[k]g[n - 2k]\]
+    其中 \( g[n] = u[n] - u[n - 4] \)。\\
+    \begin{enumerate}[(1)]
+        \item 当 \( x[n] = \delta[n - 1] \) 时，求 \( y[n] \)。
+        \item 当 \( x[n] = \delta[n - 2] \) 时，求 \( y[n] \)。
+        \item \( S \) 是线性时不变的吗？
+        \item 当 \( x[n] = u[n] \) 时，求 \( y[n] \)。
+    \end{enumerate}
+
+\end{homeworkProblem}
+
+
+\begin{homeworkProblem}
+    考虑一个系统 \( S \)，其输入 \( x[n] \) 与输出 \( y[n] \) 的关系为\\
+    \[y[n] = x[n]\{g[n] + g[n - 1]\}\]
+    \begin{enumerate}[(1)]
+        \item 若对所有的 \( n \)，\( g[n] = 1 \)，证明 \( S \) 是时不变的。
+        \item 若 \( g[n] = n \)，证明 \( S \) 不是时不变的。
+        \item 若 \( g[n] = 1 + (-1)^n \)，证明 \( S \) 是时不变的。
+    \end{enumerate}
+
+\end{homeworkProblem}
+
+
+\begin{homeworkProblem}
+    设\\
+    \[x[n] = \begin{cases}1, & 0 \leq n \leq 9 \\0, & \text{其他}\end{cases}\]
+    且\\
+    \[h[n] = \begin{cases}1, & 0 \leq n \leq N \\0, & \text{其他}\end{cases}\]
+    其中 \( N \leq 9 \)，是一个整数。已知 \( y[n] = x[n] * h[n] \) 且 \( y[4] = 5 \)，\( y[14] = 0 \)，试求 \( N \) 的值。
+
+\end{homeworkProblem}
+
+
+\begin{homeworkProblem}
+    对下列各说法，判断是对还是错。\\
+    \begin{enumerate}[(1)]
+        \item 若 \( n < N_1 \) 时 \( x[n] = 0 \) 且 \( n < N_2 \) 时 \( h[n] = 0 \)，那么 \( n < N_1 + N_2 \) 时 \( x[n] * h[n] = 0 \)。
+        \item 若 \( y[n] = x[n] * h[n] \)，则 \( y[n - 1] = x[n - 1] * h[n - 1] \)。
+        \item 若 \( y(t) = x(t) * h(t) \)，则 \( y(-t) = x(-t) * h(-t) \)。
+        \item 若 \( t > T_1 \) 时 \( x(t) = 0 \) 且 \( t > T_2 \) 时 \( h(t) = 0 \)，则 \( t > T_1 + T_2 \) 时 \( x(t) * h(t) = 0 \)。
+    \end{enumerate}
+
+\end{homeworkProblem}
+
+
+\begin{homeworkProblem}
+    计算并画出 \( y[n] = x[n] * h[n] \)，其中\\
+\[x[n] = \begin{cases}1, & 3 \leq n \leq 8 \\
+0, & \text{其他}\end{cases}\]
+\[h[n] = \begin{cases}1, & 4 \leq n \leq 15 \\
+0, & \text{其他}\end{cases}\]
+\end{homeworkProblem}
+
+
+\begin{homeworkProblem}
+    请写出两种噪声种类，他们有什么特点，以及对应的滤波方法
+
+\end{homeworkProblem}
+
+
+\begin{homeworkProblem}
+    请写出两种损失函数，以及对应的公式和应用场景
+
+\end{homeworkProblem}
+
+
+\end{document}

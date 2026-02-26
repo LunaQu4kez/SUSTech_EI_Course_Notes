@@ -1,0 +1,189 @@
+\documentclass[UTF8]{ctexart}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage{pgfplots} 
+\pgfplotsset{compat=1.17} % 适配版本，避免兼容性警告
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{enumerate}
+
+\usetikzlibrary{automata,positioning}
+
+% 基本文档设置
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName\ \hmwkStudentID}
+\chead{\hmwkClass: \hmwkTitle}
+\rhead{\firstxmark}
+\lfoot{\lastxmark}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+
+\setlength\parindent{0pt}
+
+% 问题部分设置
+\newcommand{\enterProblemHeader}[1]{
+    \nobreak\extramarks{}{Problem \arabic{#1} continued on next page\ldots}\nobreak{}
+    \nobreak\extramarks{Problem \arabic{#1} (continued)}{Problem \arabic{#1} continued on next page\ldots}\nobreak{}
+}
+
+\newcommand{\exitProblemHeader}[1]{
+    \nobreak\extramarks{Problem \arabic{#1} (continued)}{Problem \arabic{#1} continued on next page\ldots}\nobreak{}
+    \stepcounter{#1}
+    \nobreak\extramarks{Problem \arabic{#1}}{}\nobreak{}
+}
+
+\setcounter{secnumdepth}{0}
+\newcounter{partCounter}
+\newcounter{homeworkProblemCounter}
+\setcounter{homeworkProblemCounter}{1}
+\nobreak\extramarks{Problem \arabic{homeworkProblemCounter}}{}\nobreak{}
+
+\newenvironment{homeworkProblem}{
+    \section{Problem \arabic{homeworkProblemCounter}}
+    \setcounter{partCounter}{1}
+    \enterProblemHeader{homeworkProblemCounter}
+}{
+    \exitProblemHeader{homeworkProblemCounter}
+}
+
+% 作业信息
+\newcommand{\hmwkTitle}{Homework 5}
+\newcommand{\hmwkDueDate}{Jan. 30, 2026}
+\newcommand{\hmwkClass}{现代信号处理}
+\newcommand{\hmwkStudentID}{12345678}
+\newcommand{\hmwkAuthorName}{助教}
+
+% 标题页
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \normalsize\vspace{0.1in}\small{Due\ on\ \hmwkDueDate\ }\\
+    \vspace{3in}
+}
+
+\author{
+	\textbf{\hmwkAuthorName}\\
+	\textbf{学号\ \hmwkStudentID}
+}
+\date{}
+
+\renewcommand{\part}[1]{\textbf{\large Part \Alph{partCounter}}\stepcounter{partCounter}}
+
+% 辅助命令
+\newcommand{\alg}[1]{\textsc{\bfseries \footnotesize #1}}
+\newcommand{\deriv}[1]{\frac{\mathrm{d}}{\mathrm{d}x} (#1)}
+\newcommand{\pderiv}[2]{\frac{\partial}{\partial #1} (#2)}
+\newcommand{\dx}{\mathrm{d}x}
+\newcommand{\solution}{\textbf{\large Solution}}
+\newcommand{\E}{\mathrm{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Bias}{\mathrm{Bias}}
+
+\begin{document}
+
+\maketitle
+
+\pagebreak
+
+要求:latex\\
+DDL:2026/1/4 下午23:59分前提交pdf电子版\\
+电子版以"homework5-姓名-学号"形式发送到12332186@mail.sustech.edu.cn邮箱\\
+
+
+\begin{homeworkProblem}
+    Given observations $x[n]$ for $n = 0, 1, \dots, N-1$, where the samples are i.i.d. and distributed according to $U[\theta_1, \theta_2]$, find a sufficient statistic for $\boldsymbol{\theta} = [\theta_1, \theta_2]^T$.
+\end{homeworkProblem}
+    
+\begin{homeworkProblem}
+    For $n = 0, 1, \dots, N-1$, suppose $x[n] = A r^n + w[n]$, where $A$ is an unknown parameter, $r$ is an unknown constant, and $w[n]$ is white noise with zero mean and variance $\sigma^2$. Find the BLUE of $A$ and its minimum variance. Does the minimum variance tend to zero as $N \to \infty$?
+\end{homeworkProblem}
+    
+\begin{homeworkProblem}
+    The observed i.i.d. samples $\{x[0], x[1], \dots, x[N-1]\}$ follow the distributions below:
+    \begin{enumerate}
+        \item[a.] Laplace:
+        \[
+            p(x[n]; \mu) = \frac{1}{2} \exp\left[-|x[n] - \mu|\right]
+        \]
+        \item[b.] Gaussian:
+        \[
+            p(x[n]; \mu) = \frac{1}{\sqrt{2\pi}} \exp\left[-\frac{1}{2}(x[n] - \mu)^2\right]
+        \]
+    \end{enumerate}
+    Find the BLUE of the mean $\mu$ for both cases. Also, explain the MVU estimator of $\mu$.
+\end{homeworkProblem}
+    
+\begin{homeworkProblem}
+    Assume that the observed signal is $x[n] = A s[n] + w[n]$, for $n = 0, 1, \dots, N-1$, where $w[n]$ is noise with zero mean and covariance matrix $\mathbf{C}$, and $s[n]$ is a known signal. The amplitude $A$ is the parameter to be estimated. Find the BLUE of $A$. Discuss what happens if the characteristic vector of $\mathbf{C}$ is $\mathbf{s} = [s[0]\; s[1]\; \dots\; s[N-1]]^T$. Also, find the minimum variance.
+\end{homeworkProblem}
+    
+\begin{homeworkProblem}
+    Prove the linearity property of the BLUE with respect to linear transformations of $\boldsymbol{\theta}$. Specifically, if we wish to estimate
+    \[
+        \boldsymbol{\alpha} = \mathbf{B} \boldsymbol{\theta} + \mathbf{b},
+    \]
+    where $\mathbf{B}$ is a known $p \times p$ invertible matrix and $\mathbf{b}$ is a known $p \times 1$ vector, prove that the BLUE of $\boldsymbol{\alpha}$ is given by
+    \[
+        \hat{\boldsymbol{\alpha}} = \mathbf{B} \hat{\boldsymbol{\theta}} + \mathbf{b},
+    \]
+    where $\hat{\boldsymbol{\theta}}$ is the BLUE of $\boldsymbol{\theta}$. Assume the data model $\mathbf{x} = \mathbf{H} \boldsymbol{\theta} + \mathbf{w}$, where $E(\mathbf{w}) = \mathbf{0}$ and $E(\mathbf{w} \mathbf{w}^T) = \mathbf{C}$. Hint: Substitute $\boldsymbol{\theta}$ for $\boldsymbol{\alpha}$ in the data model.
+\end{homeworkProblem}
+    
+\begin{homeworkProblem}
+    For the general linear model
+    \[
+        \mathbf{x} = \mathbf{H} \boldsymbol{\theta} + \mathbf{s} + \mathbf{w},
+    \]
+    where $\mathbf{s}$ is a known $N \times 1$ vector, $E(\mathbf{w}) = \mathbf{0}$, and $E(\mathbf{w} \mathbf{w}^T) = \mathbf{C}$, find the BLUE of $\boldsymbol{\theta}$.
+\end{homeworkProblem}
+    
+\begin{homeworkProblem}
+    We observe $N$ i.i.d. samples from the following PDFs:
+    
+    \begin{enumerate}
+        \item[a.] Gaussian:
+        \[
+            p(x; \mu) = \frac{1}{\sqrt{2\pi}} \exp\left[-\frac{1}{2}(x - \mu)^2\right]
+        \]
+    
+        \item[b.] Exponential:
+        \[
+            p(x; \lambda) = 
+            \begin{cases} 
+                \lambda \exp(-\lambda x) & x > 0 \\
+                0 & x < 0 
+            \end{cases}
+        \]
+    \end{enumerate}
+    
+    In each case, find the MLE of the unknown parameter and verify that it indeed maximizes the likelihood function. Is the estimator meaningful?
+\end{homeworkProblem}
+    
+\begin{homeworkProblem}
+    The following is the formal definition of a consistent estimator: If for any given $\epsilon > 0$, it satisfies
+    \[
+        \lim_{N \to \infty} \Pr\left\{ |\hat{\theta} - \theta| > \epsilon \right\} = 0,
+    \]
+    then the estimator $\hat{\theta}$ is consistent.
+    
+    Prove that for the problem of estimating a DC level $A$ in white Gaussian noise with known variance, the sample mean is a consistent estimator. Hint: Use Chebyshev's inequality.
+\end{homeworkProblem}
+
+\end{document}

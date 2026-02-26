@@ -1,0 +1,229 @@
+\documentclass[UTF8]{ctexart}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{enumerate}
+
+\usetikzlibrary{automata,positioning}
+
+
+%
+% Basic Document Settings
+%
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName\ \hmwkStudentID}
+\chead{\hmwkClass: \hmwkTitle}
+\rhead{\firstxmark}
+\lfoot{\lastxmark}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+
+\setlength\parindent{0pt}
+
+%
+% Create Problem Sections
+%
+
+\newcommand{\enterProblemHeader}[1]{
+    \nobreak\extramarks{}{Problem \arabic{#1} continued on next page\ldots}\nobreak{}
+    \nobreak\extramarks{Problem \arabic{#1} (continued)}{Problem \arabic{#1} continued on next page\ldots}\nobreak{}
+}
+
+\newcommand{\exitProblemHeader}[1]{
+    \nobreak\extramarks{Problem \arabic{#1} (continued)}{Problem \arabic{#1} continued on next page\ldots}\nobreak{}
+    \stepcounter{#1}
+    \nobreak\extramarks{Problem \arabic{#1}}{}\nobreak{}
+}
+
+\setcounter{secnumdepth}{0}
+\newcounter{partCounter}
+\newcounter{homeworkProblemCounter}
+\setcounter{homeworkProblemCounter}{1}
+\nobreak\extramarks{Problem \arabic{homeworkProblemCounter}}{}\nobreak{}
+
+\newenvironment{homeworkProblem}{
+    \section{Problem \arabic{homeworkProblemCounter}}
+    \setcounter{partCounter}{1}
+    \enterProblemHeader{homeworkProblemCounter}
+}{
+    \exitProblemHeader{homeworkProblemCounter}
+}
+
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{Homework 4}
+\newcommand{\hmwkDueDate}{Dec.14, 2025}
+\newcommand{\hmwkClass}{现代信号处理}
+\newcommand{\hmwkStudentID}{这里写学号}
+\newcommand{\hmwkAuthorName}{某某某}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \normalsize\vspace{0.1in}\small{Due\ on\ \hmwkDueDate\ }\\
+    \vspace{3in}
+}
+
+\author{
+	\textbf{\hmwkAuthorName}\\
+	\textbf{学号\ \hmwkStudentID}
+}
+\date{}
+
+\renewcommand{\part}[1]{\textbf{\large Part \Alph{partCounter}}\stepcounter{partCounter}\\}
+
+%
+% Various Helper Commands
+%
+
+% Useful for algorithms
+\newcommand{\alg}[1]{\textsc{\bfseries \footnotesize #1}}
+
+% For derivatives
+\newcommand{\deriv}[1]{\frac{\mathrm{d}}{\mathrm{d}x} (#1)}
+
+% For partial derivatives
+\newcommand{\pderiv}[2]{\frac{\partial}{\partial #1} (#2)}
+
+% Integral dx
+\newcommand{\dx}{\mathrm{d}x}
+
+% Alias for the Solution section header
+\newcommand{\solution}{\textbf{\large Solution}}
+
+% Probability commands: Expectation, Variance, Covariance, Bias
+\newcommand{\E}{\mathrm{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Bias}{\mathrm{Bias}}
+
+\begin{document}
+
+\maketitle
+
+\pagebreak
+
+要求:latex\\
+DDL:2025/12/14 下午23: 59分前提交pdf电子版\\
+电子版以"homework4-姓名-学号"形式发送到12432643@mail.sustech.edu.cn邮箱\\
+\begin{homeworkProblem}
+    Consider the continuous-time signal $x(t)$ defined as
+    \begin{align*} x(t) = \frac{\sin 2\pi t}{\pi t}
+    \end{align*}
+    Prove that $x(t)$ is square integrable, but is not absolutely integrable.\\
+    \newline
+    
+\end{homeworkProblem}
+
+\begin{homeworkProblem}
+    We wish to estimate the amplitudes of exponential signals in noise. The observed data is given by
+    \begin{align*} x[n] = \sum_{i=1}^{p} A_i r_i^n + w[n], \quad n=0, 1, \dots, N-1
+    \end{align*}
+    where $w[n]$ is white Gaussian noise (WGN) with variance $\sigma^2$. Find the MVU estimator of the amplitudes and their covariance. Evaluate your results for the specific case where $p=2$, $r_1=1$, $r_2=-1$, and $N$ is even.\\
+    \newline
+    
+\end{homeworkProblem}
+
+\begin{homeworkProblem}
+    Consider the observation matrix
+    \begin{align*} \mathbf{H} = \begin{bmatrix} 1 & 1 \\ 1 & 1 \\ 1 & 1 + \epsilon \end{bmatrix}
+    \end{align*}
+    where $\epsilon$ is small. Compute $(\mathbf{H}^T \mathbf{H})^{-1}$, and examine what happens as $\epsilon \to 0$. If the observation vector is $\mathbf{x} = [2 \ \ 2 \ \ 2]^T$, find the MVU estimator. Describe what happens as $\epsilon \to 0$.\\
+    \newline
+    
+\end{homeworkProblem}
+\newpage
+\begin{homeworkProblem}
+    In practice, we sometimes encounter the linear model $\mathbf{x} = \mathbf{H}\boldsymbol{\theta} + \mathbf{w}$, where $\mathbf{H}$ is composed of random variables. Suppose we ignore this difference and use the usual estimator
+    \begin{align*} \hat{\boldsymbol{\theta}} = (\mathbf{H}^T \mathbf{H})^{-1} \mathbf{H}^T \mathbf{x}
+    \end{align*}
+    where we assume the specific realization of $\mathbf{H}$ is known. Prove that if $\mathbf{H}$ and $\mathbf{w}$ are independent, then the mean and covariance of $\hat{\boldsymbol{\theta}}$ are
+    \begin{align*} E(\hat{\boldsymbol{\theta}}) &= \boldsymbol{\theta} \\
+    \mathbf{C}_{\hat{\theta}} &= \sigma^2 E_H [(\mathbf{H}^T \mathbf{H})^{-1}]
+    \end{align*}
+    \newline
+    
+\end{homeworkProblem}
+
+\begin{homeworkProblem}
+    Suppose we observe a fading signal in noise. We view this fading signal as being derived from another "on" or "off" signal. For example, consider a DC level in WGN, i.e., $x[n] = A + w[n]$, for $n=0, 1, \dots, N-1$. When the signal fades, the data model becomes
+    \begin{align*}
+        x[n] = \begin{cases}
+            A + w[n] & n = 0, 1, \dots, M-1 \\
+            w[n] & n = M, M+1, \dots, N-1
+        \end{cases}
+    \end{align*}
+    where the probability of fading is $\epsilon$. Assume we know when the signal has undergone fading. Use the results of Problem 4 to determine the estimator of $A$ and its variance, and compare this result with the case of no fading.\\
+    \newline
+    
+\end{homeworkProblem}
+
+\begin{homeworkProblem}
+    The IID observations $x[n]$ for $n=0, 1, \dots, N-1$ have the exponential PDF
+    \begin{align*}
+        p(x[n]; \lambda) = \begin{cases}
+            \lambda \exp(-\lambda x[n]) & x[n] > 0 \\
+            0 & x[n] < 0
+        \end{cases}
+    \end{align*}
+    Find a sufficient statistic for $\lambda$.\\
+    \newline
+    
+\end{homeworkProblem}
+\newpage
+\begin{homeworkProblem}
+    Assume $x[n]$ is the result of a Bernoulli trial (coin toss), with
+    \begin{align*}
+        \Pr\{x[n]=1\} &= \theta \\
+        \Pr\{x[n]=0\} &= 1 - \theta
+    \end{align*}
+    and $N$ IID observations are made. Assuming the Neyman-Fisher Factorization Theorem holds for discrete random variables, find a sufficient statistic for $\theta$. Then, assuming completeness, find the MVU estimator of $\theta$.\\
+    \newline
+    
+\end{homeworkProblem}
+
+\begin{homeworkProblem}
+    Consider a sinusoidal signal of known frequency in WGN, i.e.,
+    \begin{align*} x[n] = A \cos 2\pi f_0 n + w[n] \quad n=0, 1, \dots, N-1
+    \end{align*}
+    where $w[n]$ is WGN with variance $\sigma^2$. Find the MVU estimators for the following parameters:
+    \begin{enumerate}
+        \item Amplitude $A$, assuming $\sigma^2$ is known;
+        \item Amplitude $A$ and noise variance $\sigma^2$.
+    \end{enumerate}
+    You may assume the sufficient statistic is complete.\\
+    \newline
+
+\end{homeworkProblem}
+
+\end{document}

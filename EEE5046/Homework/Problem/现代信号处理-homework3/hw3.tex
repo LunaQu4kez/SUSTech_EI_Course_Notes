@@ -1,0 +1,224 @@
+\documentclass[UTF8]{ctexart}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{enumerate}
+
+\usetikzlibrary{automata,positioning}
+
+
+%
+% Basic Document Settings
+%
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName\ \hmwkStudentID}
+\chead{\hmwkClass: \hmwkTitle}
+\rhead{\firstxmark}
+\lfoot{\lastxmark}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+
+\setlength\parindent{0pt}
+
+%
+% Create Problem Sections
+%
+
+\newcommand{\enterProblemHeader}[1]{
+    \nobreak\extramarks{}{Problem \arabic{#1} continued on next page\ldots}\nobreak{}
+    \nobreak\extramarks{Problem \arabic{#1} (continued)}{Problem \arabic{#1} continued on next page\ldots}\nobreak{}
+}
+
+\newcommand{\exitProblemHeader}[1]{
+    \nobreak\extramarks{Problem \arabic{#1} (continued)}{Problem \arabic{#1} continued on next page\ldots}\nobreak{}
+    \stepcounter{#1}
+    \nobreak\extramarks{Problem \arabic{#1}}{}\nobreak{}
+}
+
+\setcounter{secnumdepth}{0}
+\newcounter{partCounter}
+\newcounter{homeworkProblemCounter}
+\setcounter{homeworkProblemCounter}{1}
+\nobreak\extramarks{Problem \arabic{homeworkProblemCounter}}{}\nobreak{}
+
+\newenvironment{homeworkProblem}{
+    \section{Problem \arabic{homeworkProblemCounter}}
+    \setcounter{partCounter}{1}
+    \enterProblemHeader{homeworkProblemCounter}
+}{
+    \exitProblemHeader{homeworkProblemCounter}
+}
+
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{Homework 3}
+\newcommand{\hmwkDueDate}{Nov.30, 2025}
+\newcommand{\hmwkClass}{现代信号处理}
+\newcommand{\hmwkStudentID}{这里写学号}
+\newcommand{\hmwkAuthorName}{某某某}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \normalsize\vspace{0.1in}\small{Due\ on\ \hmwkDueDate\ }\\
+    \vspace{3in}
+}
+
+\author{
+	\textbf{\hmwkAuthorName}\\
+	\textbf{学号\ \hmwkStudentID}
+}
+\date{}
+
+\renewcommand{\part}[1]{\textbf{\large Part \Alph{partCounter}}\stepcounter{partCounter}\\}
+
+%
+% Various Helper Commands
+%
+
+% Useful for algorithms
+\newcommand{\alg}[1]{\textsc{\bfseries \footnotesize #1}}
+
+% For derivatives
+\newcommand{\deriv}[1]{\frac{\mathrm{d}}{\mathrm{d}x} (#1)}
+
+% For partial derivatives
+\newcommand{\pderiv}[2]{\frac{\partial}{\partial #1} (#2)}
+
+% Integral dx
+\newcommand{\dx}{\mathrm{d}x}
+
+% Alias for the Solution section header
+\newcommand{\solution}{\textbf{\large Solution}}
+
+% Probability commands: Expectation, Variance, Covariance, Bias
+\newcommand{\E}{\mathrm{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Bias}{\mathrm{Bias}}
+
+\begin{document}
+
+\maketitle
+
+\pagebreak
+
+要求:latex\\
+DDL:2025/11/30 下午23: 59分前提交pdf电子版\\
+电子版以"homework3-姓名-学号"形式发送到12332151@mail.sustech.edu.cn邮箱\\
+\begin{homeworkProblem}
+	An unknown parameter $\theta$ influences the outcome of an experiment which is modeled by the random variable $x$. The PDF of $x$ is
+	\begin{align*} p(x ; \theta)=\frac{1}{\sqrt{2 \pi}} \exp \left[-\frac{1}{2}(x-\theta)^{2}\right]
+	\end{align*}
+	A series of experiments is performed, and $x$ is found to always be in the interval [97, 103]. As a result, the investigator concludes that $\theta$ must have been 100. Is this assertion correct?\\
+	\newline
+	
+\end{homeworkProblem}
+
+\begin{homeworkProblem}
+	It is desired to estimate the value of a DC level $A$ in $\mathrm{WGN}$ or
+	$$
+	x[n]=A+w[n] \quad n=0,1, \ldots, N-1
+	$$
+	where $w[n]$ is zero mean and uncorrelated, and each sample has variance $\sigma^2=1$. Consider the two estimators
+	$$
+	\begin{aligned}
+	\hat{A} &=\frac{1}{N} \sum_{n=0}^{N-1} x[n] \\
+	\check{A} &=\frac{1}{N+2}\left(2 x[0]+\sum_{n=1}^{N-2} x[n]+2 x[N-1]\right) .
+	\end{aligned}
+	$$
+	Which one is better? Does it depend on the value of $A$ ?\\
+	\newline
+	
+\end{homeworkProblem}
+
+\begin{homeworkProblem}
+	The data $\{ x[0], x[1], ... ,x[N-1] \}$ are observed where the $x[n]'s$ are independent and identically distributed (IID) as $N(0,\sigma ^2)$. We wish to estimate the variance $\sigma ^2$ as
+	\begin{align*}
+	\hat {\sigma ^2} = \dfrac{1}{N} \sum_{n=0}^{N-1} x^2[n]
+	\end{align*}
+	Is this an unbiased estimator? Find the variance of $\hat{\sigma ^2}$ and examine what happens as $N \rightarrow \infty$.\\
+	\newline
+	
+\end{homeworkProblem}
+
+\begin{homeworkProblem}
+	Two samples $\{ x[0], x[1] \}$ are independently observed from a $N(0, \sigma^2)$ distribution. The estimator
+	\begin{align*}
+	\hat{\sigma ^2} = \dfrac{1}{2} (x^2[0] + x^2[1])
+	\end{align*}
+	is unbiased. Find the PDF of $\hat{\sigma^2}$ to determine if it is symmetric about $\sigma^2$.\\
+	\newline
+	
+\end{homeworkProblem}
+
+\begin{homeworkProblem}
+    Independent bivariate Gaussian samples $\{x[0], x[1], ..., x[N-1]\}$ are observed. Each observation is a $2 \times 1$ vector which is distributed as $x[n] \sim \mathcal N(0,C)$ and
+    \begin{align*}
+    	C=\begin{bmatrix}1&\rho\\\rho&1\end{bmatrix} .
+    \end{align*}
+    Find the CRLB for the correlation coefficient $\rho$.\\
+\end{homeworkProblem}
+
+\begin{homeworkProblem}
+    If $x[n]=r^n+w[n]$ for $n=0, 1, ..., N-1$ are observed, where $w[n]$ is WGN with variance $\sigma^2$ and $r$ is to be estimated, find the CRLB. Does an efficient estimator exist and if so find its variance?\\
+\end{homeworkProblem}
+
+\begin{homeworkProblem}
+    Using the results of Example 3.13, determine the best range estimation accuracy of sonar if
+    \begin{align*}
+        s(t) = \left\{ {\begin{array}{*{20}{c}}
+        {1 - 100\left| {t - 0.01} \right|}\\
+        0
+        \end{array}} \right.\begin{array}{*{20}{c}}
+        {}\\
+        {}
+        \end{array}\begin{array}{*{20}{c}}
+        {0 \le t \le 0.02}\\
+        {otherwise.}
+        \end{array}
+    \end{align*}
+    Let $N_0/2=10^{-6}$ and $c=1500 m/s$.
+    \\    
+\end{homeworkProblem}
+\newpage
+\begin{homeworkProblem}
+	
+	\begin{figure}[ht]
+		\centering
+		\includegraphics[width=0.8\linewidth]{hw14.jpg}
+		%\caption{}\label{1}
+	\end{figure}
+\end{homeworkProblem}
+
+\end{document}
