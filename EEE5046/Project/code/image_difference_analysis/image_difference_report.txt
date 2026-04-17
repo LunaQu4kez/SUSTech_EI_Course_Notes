@@ -1,0 +1,30 @@
+IMAGE TRANSFER DIFFERENCE ANALYSIS REPORT
+============================================================
+
+Analysis Date: 2025-12-13 16:52:05.243490
+Number of Samples: 20
+Source Domain: Domain1
+Target Domain: Domain4
+
+1. AVERAGE METRICS COMPARISON
+----------------------------------------
+Metric          FedDG (Mean)     CycleGAN (Mean)    Difference
+----------------------------------------------------------------
+MSE                  1544.47           4119.42    -2574.95 (CycleGAN)
+PSNR [dB]              18.30             12.45       -5.85 (FedDG)
+SSIM                    0.78              0.61       -0.17 (FedDG)
+
+2. METHOD RECOMMENDATION
+----------------------------------------
+Metrics where FedDG is better: 3/3
+Metrics where CycleGAN is better: 0/3
+
+RECOMMENDATION: FedDG is the preferred method.
+Reason: FedDG performs better on more quality metrics.
+
+3. GENERATED VISUALIZATIONS
+----------------------------------------
+The following analysis files have been generated:
+• improvement_comparison.png
+• metrics_comparison.png
+• sample_trends.png

@@ -1,0 +1,24 @@
+FedDG Configuration - All Images
+==================================================
+
+Source Domain: Domain1
+Target Domain: Domain4
+Total images processed: 50
+Images saved to: feddg_migration_all\migrated_images
+
+Optimal Parameters:
+  Lambda: 0.37
+  Mask ratio: 0.30
+
+Selected Samples for Visualization:
+  1. gdrishtiGS_075.png
+  2. gdrishtiGS_016.png
+  3. gdrishtiGS_058.png
+  4. ndrishtiGS_037.png
+  5. gdrishtiGS_049.png
+
+Output Files:
+  Migrated images: migrated_*.png in feddg_migration_all\migrated_images
+  Detailed visualizations: detailed_sample_*.png
+  Comparison overview: comparison_overview.png
+  Performance statistics: performance_statistics.png

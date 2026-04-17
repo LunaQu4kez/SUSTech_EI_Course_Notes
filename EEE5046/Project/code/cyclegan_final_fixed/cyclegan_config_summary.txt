@@ -1,0 +1,78 @@
+CycleGAN Configuration Summary
+==================================================
+
+Source Domain: Domain1
+Target Domain: Domain4
+Image Size: 256x256
+Batch Size: 4
+Epochs: 5
+Device: cpu
+
+Loss Parameters:
+  Lambda Cycle: 10.0
+  Lambda Identity: 5.0
+  GAN Loss: MSE
+  Cycle Loss: L1
+  Identity Loss: L1
+
+Performance Summary:
+  Average PSNR: 17.38 dB
+  Average SSIM: 0.779
+  Average MSE: 1284.9
+
+Output Files:
+  - checkpoint_epoch_10.pth: Model checkpoint
+  - checkpoint_epoch_100.pth: Model checkpoint
+  - checkpoint_epoch_12.pth: Model checkpoint
+  - checkpoint_epoch_14.pth: Model checkpoint
+  - checkpoint_epoch_16.pth: Model checkpoint
+  - checkpoint_epoch_18.pth: Model checkpoint
+  - checkpoint_epoch_2.pth: Model checkpoint
+  - checkpoint_epoch_20.pth: Model checkpoint
+  - checkpoint_epoch_22.pth: Model checkpoint
+  - checkpoint_epoch_24.pth: Model checkpoint
+  - checkpoint_epoch_26.pth: Model checkpoint
+  - checkpoint_epoch_28.pth: Model checkpoint
+  - checkpoint_epoch_30.pth: Model checkpoint
+  - checkpoint_epoch_32.pth: Model checkpoint
+  - checkpoint_epoch_34.pth: Model checkpoint
+  - checkpoint_epoch_36.pth: Model checkpoint
+  - checkpoint_epoch_38.pth: Model checkpoint
+  - checkpoint_epoch_4.pth: Model checkpoint
+  - checkpoint_epoch_40.pth: Model checkpoint
+  - checkpoint_epoch_42.pth: Model checkpoint
+  - checkpoint_epoch_44.pth: Model checkpoint
+  - checkpoint_epoch_46.pth: Model checkpoint
+  - checkpoint_epoch_48.pth: Model checkpoint
+  - checkpoint_epoch_50.pth: Model checkpoint
+  - checkpoint_epoch_52.pth: Model checkpoint
+  - checkpoint_epoch_54.pth: Model checkpoint
+  - checkpoint_epoch_56.pth: Model checkpoint
+  - checkpoint_epoch_58.pth: Model checkpoint
+  - checkpoint_epoch_6.pth: Model checkpoint
+  - checkpoint_epoch_60.pth: Model checkpoint
+  - checkpoint_epoch_62.pth: Model checkpoint
+  - checkpoint_epoch_64.pth: Model checkpoint
+  - checkpoint_epoch_66.pth: Model checkpoint
+  - checkpoint_epoch_68.pth: Model checkpoint
+  - checkpoint_epoch_70.pth: Model checkpoint
+  - checkpoint_epoch_72.pth: Model checkpoint
+  - checkpoint_epoch_74.pth: Model checkpoint
+  - checkpoint_epoch_76.pth: Model checkpoint
+  - checkpoint_epoch_78.pth: Model checkpoint
+  - checkpoint_epoch_8.pth: Model checkpoint
+  - checkpoint_epoch_80.pth: Model checkpoint
+  - checkpoint_epoch_82.pth: Model checkpoint
+  - checkpoint_epoch_84.pth: Model checkpoint
+  - checkpoint_epoch_86.pth: Model checkpoint
+  - checkpoint_epoch_88.pth: Model checkpoint
+  - checkpoint_epoch_90.pth: Model checkpoint
+  - checkpoint_epoch_92.pth: Model checkpoint
+  - checkpoint_epoch_94.pth: Model checkpoint
+  - checkpoint_epoch_96.pth: Model checkpoint
+  - checkpoint_epoch_98.pth: Model checkpoint
+  - cyclegan_final.pth: Model checkpoint
+  - cyclegan_vs_feddg_comparison.png: Visualization
+  - parameter_comparison.png: Visualization
+  - performance_evaluation.png: Visualization
+  - training_convergence.png: Visualization
